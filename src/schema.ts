@@ -8,12 +8,9 @@ import { AuthResolver } from "./resolvers/auth/auth-resolver";
 import { HourResolver } from "./resolvers/hour/hour-resolver";
 import { authChecker } from "./resolvers/auth/auth-checker";
 
-
 export const getSchema = async () => {
   const schema = await buildSchema({
-    resolvers: [UserResolver,AuthResolver,
-        HourResolver
-    ],
+    resolvers: [UserResolver, AuthResolver, HourResolver],
     emitSchemaFile: path.resolve(__dirname, "schema.gql"),
     // use document converting middleware
     globalMiddlewares: [TypegooseMiddleware],
