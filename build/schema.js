@@ -35,9 +35,7 @@ const hour_resolver_1 = require("./resolvers/hour/hour-resolver");
 const auth_checker_1 = require("./resolvers/auth/auth-checker");
 const getSchema = async () => {
     const schema = await (0, type_graphql_1.buildSchema)({
-        resolvers: [user_resolver_1.UserResolver, auth_resolver_1.AuthResolver,
-            hour_resolver_1.HourResolver
-        ],
+        resolvers: [user_resolver_1.UserResolver, auth_resolver_1.AuthResolver, hour_resolver_1.HourResolver],
         emitSchemaFile: path.resolve(__dirname, "schema.gql"),
         // use document converting middleware
         globalMiddlewares: [typegoose_middleware_1.TypegooseMiddleware],
