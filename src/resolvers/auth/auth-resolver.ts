@@ -17,12 +17,16 @@ export class AuthResolver {
     }
 
     const user = await UserModel.findById(ctx.user._id);
-    
+    const token = ctx.req.headers.authorization.split(" ")[1];
+    const expiredТoken = await AuthModel.find({token});
+
+    if(Array.isArray(expiredТoken) && expiredТoken.length !== 0){
+      throw new AuthenticationError("user_not_authenticated");
+    }
+
     if (ctx.user.exp * 1000 < Date.now()) {
-      const token = ctx.req.headers.authorization.split(" ")[1];
       const newAuth = new AuthModel({ token });
       await newAuth.save();
-
       throw new AuthenticationError("user_not_authenticated");
     }
 
