@@ -19,6 +19,7 @@ exports.UserResolver = void 0;
 const type_graphql_1 = require("type-graphql");
 const user_entity_1 = require("../../entities/user-entity");
 const user_arguments_1 = require("./user-arguments");
+const user_roles_1 = require("../user/user.roles");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 let UserResolver = class UserResolver {
     async users() {
@@ -36,7 +37,6 @@ let UserResolver = class UserResolver {
         await newUser.save();
         return newUser;
     }
-    // @Authorized([UserRoles.SUPER_ADMIN])
     async deleteUser(_id) {
         return await user_entity_1.UserModel.findByIdAndRemove(_id);
     }
@@ -71,6 +71,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserResolver.prototype, "createUser", null);
 __decorate([
+    (0, type_graphql_1.Authorized)([user_roles_1.UserRoles.SUPER_ADMIN]),
     (0, type_graphql_1.Mutation)((returns) => user_entity_1.User),
     __param(0, (0, type_graphql_1.Arg)("_id")),
     __metadata("design:type", Function),

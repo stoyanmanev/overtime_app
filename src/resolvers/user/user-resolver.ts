@@ -27,7 +27,7 @@ export class UserResolver {
     return newUser;
   }
 
-  // @Authorized([UserRoles.SUPER_ADMIN])
+  @Authorized([UserRoles.SUPER_ADMIN])
   @Mutation((returns) => User)
   async deleteUser(@Arg("_id") _id: string): Promise<User> {
     return await UserModel.findByIdAndRemove(_id);
