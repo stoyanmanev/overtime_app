@@ -20,6 +20,7 @@ export class AuthResolver {
     const token = ctx.req.headers.authorization.split(" ")[1];
     const expiredТoken = await AuthModel.find({token});
 
+
     if(Array.isArray(expiredТoken) && expiredТoken.length !== 0){
       throw new AuthenticationError("user_not_authenticated");
     }

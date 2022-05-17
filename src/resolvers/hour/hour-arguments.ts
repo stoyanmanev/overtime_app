@@ -5,12 +5,12 @@ import { Hour } from "../../entities/hour-entity";
 
 @InputType()
 export class EditHourInput {
-  @Field()
+  @Field({nullable: true})
   @MinLength(6)
-  date: string;
+  date?: string;
 
-  @Field()
-  value: number;
+  @Field({nullable: true})
+  value?: number;
 
   @Field({nullable: true})
   description?: string;

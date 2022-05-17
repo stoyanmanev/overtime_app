@@ -1,4 +1,4 @@
-import { ObjectType, Field, Authorized } from "type-graphql";
+import { ObjectType, Field } from "type-graphql";
 import {
   prop as Prop,
   getModelForClass,
@@ -40,7 +40,6 @@ export class User {
   @Field((type) => [Hour])
   overtime?: Hour[];
 
-  @Authorized([UserRoles.SUPER_ADMIN])
   @Prop({ default: [UserRoles.USER] })
   @Field(type => [String])
   roles?: string[]

@@ -40,6 +40,6 @@ export class EditUserInput {
   @MinLength(6)
   password?: string;
 
-  @Field(type => [HourInput])
+  @Field(type => [HourInput], {nullable: true})
   hours?: HourInput[];
 }

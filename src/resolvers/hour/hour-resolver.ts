@@ -32,7 +32,6 @@ export class HourResolver {
     return newHour;
   }
 
-  @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
   @Mutation((returns) => Hour)
   async deleteHour(@Arg("_id") _id: string): Promise<Hour> {
     return await HourModel.findByIdAndRemove(_id);

@@ -56,7 +56,6 @@ __decorate([
     __metadata("design:type", Array)
 ], User.prototype, "overtime", void 0);
 __decorate([
-    (0, type_graphql_1.Authorized)([user_roles_1.UserRoles.SUPER_ADMIN]),
     (0, typegoose_1.prop)({ default: [user_roles_1.UserRoles.USER] }),
     (0, type_graphql_1.Field)(type => [String]),
     __metadata("design:type", Array)

@@ -16,12 +16,12 @@ const type_graphql_1 = require("type-graphql");
 let EditHourInput = class EditHourInput {
 };
 __decorate([
-    (0, type_graphql_1.Field)(),
+    (0, type_graphql_1.Field)({ nullable: true }),
     (0, class_validator_1.MinLength)(6),
     __metadata("design:type", String)
 ], EditHourInput.prototype, "date", void 0);
 __decorate([
-    (0, type_graphql_1.Field)(),
+    (0, type_graphql_1.Field)({ nullable: true }),
     __metadata("design:type", Number)
 ], EditHourInput.prototype, "value", void 0);
 __decorate([

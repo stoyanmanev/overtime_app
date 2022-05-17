@@ -17,7 +17,6 @@ const type_graphql_1 = require("type-graphql");
 const apollo_server_core_1 = require("apollo-server-core");
 const hour_entity_1 = require("../../entities/hour-entity");
 const hour_arguments_1 = require("./hour-arguments");
-const user_roles_1 = require("../user/user.roles");
 let HourResolver = class HourResolver {
     async hours() {
         return await hour_entity_1.HourModel.find({});
@@ -66,7 +65,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], HourResolver.prototype, "createHour", null);
 __decorate([
-    (0, type_graphql_1.Authorized)([user_roles_1.UserRoles.ADMIN, user_roles_1.UserRoles.SUPER_ADMIN]),
     (0, type_graphql_1.Mutation)((returns) => hour_entity_1.Hour),
     __param(0, (0, type_graphql_1.Arg)("_id")),
     __metadata("design:type", Function),

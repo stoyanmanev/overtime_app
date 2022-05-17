@@ -16,15 +16,15 @@ input CreateUserInput {
 }
 
 input EditHourInput {
-  date: String!
+  date: String
   description: String
-  value: Float!
+  value: Float
 }
 
 input EditUserInput {
   email: String
   fullname: String
-  hours: [HourInput!]!
+  hours: [HourInput!]
   password: String
   username: String
 }

@@ -62,7 +62,7 @@ __decorate([
     __metadata("design:type", String)
 ], EditUserInput.prototype, "password", void 0);
 __decorate([
-    (0, type_graphql_1.Field)(type => [hour_arguments_1.HourInput]),
+    (0, type_graphql_1.Field)(type => [hour_arguments_1.HourInput], { nullable: true }),
     __metadata("design:type", Array)
 ], EditUserInput.prototype, "hours", void 0);
 EditUserInput = __decorate([
