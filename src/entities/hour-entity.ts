@@ -26,8 +26,8 @@ export class Hour {
   createdBy: string;
 
   @Prop()
-  @Field()
-  description: string;
+  @Field({nullable: true})
+  description?: string;
 }
 
 export const HourModel = getModelForClass(Hour, {

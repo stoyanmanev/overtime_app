@@ -30,6 +30,6 @@ export class HourInput implements Partial<Hour> {
   @Field()
   createdBy: string;
 
-  @Field()
-  description: string;
+  @Field({nullable: true})
+  description?: string;
 }
