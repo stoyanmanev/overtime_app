@@ -18,6 +18,7 @@ input CreateUserInput {
 input EditHourInput {
   date: String
   description: String
+  flag: Boolean = false
   value: Float
 }
 
@@ -33,7 +34,8 @@ type Hour {
   _id: ObjectId!
   createdBy: String!
   date: String!
-  description: String!
+  description: String
+  flag: Boolean
   value: Float!
 }
 
@@ -41,7 +43,8 @@ input HourInput {
   _id: ObjectId!
   createdBy: String!
   date: String!
-  description: String!
+  description: String
+  flag: Boolean = false
   value: Float!
 }
 

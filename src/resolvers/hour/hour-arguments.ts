@@ -14,6 +14,9 @@ export class EditHourInput {
 
   @Field({nullable: true})
   description?: string;
+
+  @Field({defaultValue: false})
+  flag?: boolean;
 }
 
 @InputType()
@@ -26,6 +29,9 @@ export class HourInput implements Partial<Hour> {
 
   @Field()
   value: number;
+
+  @Field({defaultValue: false})
+  flag: boolean;
 
   @Field()
   createdBy: string;

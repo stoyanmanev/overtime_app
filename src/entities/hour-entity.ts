@@ -26,6 +26,10 @@ export class Hour {
   createdBy: string;
 
   @Prop()
+  @Field({defaultValue: false})
+  flag?: boolean;
+
+  @Prop()
   @Field({nullable: true})
   description?: string;
 }

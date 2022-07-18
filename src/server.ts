@@ -1,8 +1,10 @@
-   
 import express from "express";
 import jwt from "express-jwt";
 import { ApolloServer } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageGraphQLPlayground  } from "apollo-server-core";
+import {
+  ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} from "apollo-server-core";
 import "reflect-metadata";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -54,8 +56,9 @@ async function startApolloServer() {
 
   const server = new ApolloServer({
     schema,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer }),
-      ApolloServerPluginLandingPageGraphQLPlayground()
+    plugins: [
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+      ApolloServerPluginLandingPageGraphQLPlayground(),
     ],
     introspection: true,
     context: ({ req }) => {
@@ -73,9 +76,12 @@ async function startApolloServer() {
   await server.start();
 
   server.applyMiddleware({ app, path: graphQlPath });
-  await new Promise((resolve) => httpServer.listen({ port }));
+  await new Promise((resolve) => {
+    httpServer.listen({ port });
+    resolve(true);
+  });
 
-  console.log(`Server started at http://localhost:${port}/${graphQlPath}`);
+  console.log(`Server started at http://localhost:${port}${graphQlPath}`);
   return { server, app };
 }
 
