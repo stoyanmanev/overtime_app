@@ -36,7 +36,12 @@ __decorate([
 ], Hour.prototype, "createdBy", void 0);
 __decorate([
     (0, typegoose_1.prop)(),
-    (0, type_graphql_1.Field)(),
+    (0, type_graphql_1.Field)({ defaultValue: false }),
+    __metadata("design:type", Boolean)
+], Hour.prototype, "flag", void 0);
+__decorate([
+    (0, typegoose_1.prop)(),
+    (0, type_graphql_1.Field)({ nullable: true }),
     __metadata("design:type", String)
 ], Hour.prototype, "description", void 0);
 Hour = __decorate([

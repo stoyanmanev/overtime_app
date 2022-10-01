@@ -28,6 +28,10 @@ __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
     __metadata("design:type", String)
 ], EditHourInput.prototype, "description", void 0);
+__decorate([
+    (0, type_graphql_1.Field)({ defaultValue: false }),
+    __metadata("design:type", Boolean)
+], EditHourInput.prototype, "flag", void 0);
 EditHourInput = __decorate([
     (0, type_graphql_1.InputType)()
 ], EditHourInput);
@@ -47,11 +51,15 @@ __decorate([
     __metadata("design:type", Number)
 ], HourInput.prototype, "value", void 0);
 __decorate([
+    (0, type_graphql_1.Field)({ defaultValue: false }),
+    __metadata("design:type", Boolean)
+], HourInput.prototype, "flag", void 0);
+__decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", String)
 ], HourInput.prototype, "createdBy", void 0);
 __decorate([
-    (0, type_graphql_1.Field)(),
+    (0, type_graphql_1.Field)({ nullable: true }),
     __metadata("design:type", String)
 ], HourInput.prototype, "description", void 0);
 HourInput = __decorate([

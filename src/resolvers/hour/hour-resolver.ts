@@ -10,7 +10,9 @@ import { UserRoles } from "../user/user.roles";
 export class HourResolver {
   @Query((returns) => [Hour])
   async hours(): Promise<Hour[]> {
-    return await HourModel.find({});
+    const list = await HourModel.find({});
+    const listNonFlag = list.filter(res => res.flag === false);
+    return listNonFlag;
   }
 
   @Query((returns) => Hour)

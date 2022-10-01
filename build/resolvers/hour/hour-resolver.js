@@ -19,7 +19,9 @@ const hour_entity_1 = require("../../entities/hour-entity");
 const hour_arguments_1 = require("./hour-arguments");
 let HourResolver = class HourResolver {
     async hours() {
-        return await hour_entity_1.HourModel.find({});
+        const list = await hour_entity_1.HourModel.find({});
+        const listNonFlag = list.filter(res => res.flag === false);
+        return listNonFlag;
     }
     async hour(_id) {
         return await hour_entity_1.HourModel.findById(_id);

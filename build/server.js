@@ -44,8 +44,9 @@ async function startApolloServer() {
     const schema = await (0, schema_1.getSchema)();
     const server = new apollo_server_express_1.ApolloServer({
         schema,
-        plugins: [(0, apollo_server_core_1.ApolloServerPluginDrainHttpServer)({ httpServer }),
-            (0, apollo_server_core_1.ApolloServerPluginLandingPageGraphQLPlayground)()
+        plugins: [
+            (0, apollo_server_core_1.ApolloServerPluginDrainHttpServer)({ httpServer }),
+            (0, apollo_server_core_1.ApolloServerPluginLandingPageGraphQLPlayground)(),
         ],
         introspection: true,
         context: ({ req }) => {
@@ -62,8 +63,11 @@ async function startApolloServer() {
     });
     await server.start();
     server.applyMiddleware({ app, path: graphQlPath });
-    await new Promise((resolve) => httpServer.listen({ port }));
-    console.log(`Server started at http://localhost:${port}/${graphQlPath}`);
+    await new Promise((resolve) => {
+        httpServer.listen({ port });
+        resolve(true);
+    });
+    console.log(`Server started at http://localhost:${port}${graphQlPath}`);
     return { server, app };
 }
 startApolloServer();
